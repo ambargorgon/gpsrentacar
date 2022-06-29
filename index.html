@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="Author" content="Ambar Gorgon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Rent a Car - Bariloche </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="sweetalert2.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="iamges/Untitled - copia.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="encabezado">
+        <section class="izquierdaNAV">
+            <a href="clase15Gorgon.html" class="logo logoPalabra" rel="logorel"><img src="iamges/logopalabras.png" alt="logo"></a>
+            <h2 class="bariloche">Bariloche</h2>
+        </section>
+            <nav class="links">
+                <a class="saludoEnNav" id="saludoEnNav"></a>
+                <a href="#flotaCompleta" onclick="imprimirProductos(autosDisponibles)" class="nav-link">Flota</a>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="#terminos" class="nav-link">Términos</a>
+
+                <button class="reservar open"></button></a>
+            </nav>
+    </header>
+    <!-- Formulario de Fechas -->
+    <section class="inicio fotoFondo fotoFondoReserva">  
+    <div class="misReservas"></div>
+    <div class="contenedorFechas">   
+        <form id="consultaApartado">
+            <h2 class="tituloForm">Buscar &#128269</h2>
+            <ul>
+                <li>
+                    <label for="fechaInicioLabel">Fecha de Entrega:</label>
+                    <input type="date" name="fechaIncio" id="dateFechaInicio" class="dateFechaInicio">
+                </li>
+                <li>
+                    <label for="fechaFinalLabel">Fecha de Devolucion:</label>
+                    <input type="date" name="fechaFinal" id="dateFechaFinal" class="dateFechaFinal">
+                </li>
+                <a href="#select-precios"><button class="botonConsultar" type="button" onclick="guardarFechas(); imprimirConsulta(autosConsulta);"
+                    id="botonConsultar">Consultar</button> </a>
+            </ul>
+        </form>
+    </div></section>
+
+    <!-- Flota Completa -->
+    <button class="selector" id="flotaCompleta" onclick="imprimirProductos(autosDisponibles)">Flota Completa</button>
+    <!-- Select Precios -->
+    <select name="precios" id="select-precios" class="selectorprecios selector">
+        <option value="predeterminada" disabled selected>Precios</option>
+        <option value="-10000">0 - 10.000</option>
+        <option value="-15000">10.000 - 15.000</option>
+        <option value="+15000">+15.000</option>
+    </select>
+    <!-- Ordenar por precios -->
+    <select id="orden-precios" class="ordenarPrecios selector">
+        <option value="predet" disabled selected>Ordenar por</option>
+        <option value="alfabetico">Alfabético</option>
+        <option value="menorAMayor">Menor a Mayor</option>
+        <option value="mayorAMenor">Mayor a Menor</option>
+    </select>
+
+    <!-- Cambiar moneda -->
+    <select id="cambiarMoneda" class="selectMoneda selector" >
+        <option value="argentinos">ARS$</option>
+        <option value="dolares">US$</option>
+        <option value="reales">R$</option>
+    </select>
+    <!-- Texto de fechas Consulta -->
+    <h1 class="textoFechas" id="textoFechas"></h1>
+    <!-- Contenedor de autos iniciales -->
+    <section class="espacioAutos contenedor"></section>
+    <!-- Contenedor autos por Consulta -->
+    <section class="autosConsulta contenedor"></section>
+
+    <section class="nosotros" id="nosotros">
+        <div class="textoNosotros">
+            <h2 class="tituloNosotros">Nosotros</h2>
+            <p>
+                Somos una empresa en estado creciente que busca brindar el mejor servicio <br>
+                a aquellas personas que deseen visitar nuestra ciudad, Bariloche. <br>
+                Nacidos y criados acá, conocemos lo que se necesita al visitar nuestro lugar <br>
+                y estamos seguros de que unas vacaciones increíbles se deben acompañar <br>
+                de un servicio del mismo nivel.
+            </p>
+            <h6 class="footerNosotros">Debajo de esta página encontrarás nuestras redes</h6>
+        </div>
+        <div>
+            <img  class="fotoPaisaje"src="./iamges/paisaje.jpg" alt="paisajeAuto" width="350px">
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer" id="contacto">
+        <div class="icono">
+            <a href="https://www.instagram.com/gpsrentacar.brc/" target="_blank"><img class="iconoRedes"
+                    src="./iamges/instagram.png" alt="instagram" /></a>
+            <a href="https://www.facebook.com/gps.rentacar.505" target="_blank"><img class="iconoRedes"
+                    src="./iamges/facebook.png" alt="facebook" /></a>
+            <a href="https://api.whatsapp.com/send?phone=542944417270" target="_blank"><img class="iconoRedes"
+                    src="./iamges/whatsapp-logo-11.png" alt="whatsapp" /></a>
+        </div>
+        <img class="logo-img" src="./iamges/logopalabras.png" alt="logogps">
+        <div>
+            © 2022 GPS Rent A Car S.A. <br />
+            Todos los derechos Reservados.
+        </div>
+    </footer>
+
+    <!-- Pop Up LOGIN -->
+    <div class="popUp-container">
+        <div class="popUp popUp-close">
+            <p class="close">x</p>
+            <form class="formulario">
+                <legend>Registrarse</legend>
+                <div class="contenedor-de-cmapos">
+                    <div class="campo">
+                        <input class="imput-text nombreUsu" type="text" placeholder="Nombre" required/>
+                    </div>
+                    <div class="campo">
+                        <input class="imput-text emailUsu" type="email" placeholder="E-Mail" required />
+                    </div>
+                    <div class="campo">
+                        <input class="imput-text ContraseñaUsu" type="password" placeholder="Contraseña" required/>
+                    </div>
+                </div>
+                <div class="login">
+                    <button class="btnRegistrarse" type="submit" onclick="guardarUsuario(); grabarNombre()">Registrarme</button>
+                </div>
+                <p class="olvidoContra">¿Olvidaste tu Contraseña?</p>
+            </form>
+        </div>
+    </div>
+        
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+    <script src="productos.js"></script>
+    <script src="script.js"></script>    
+</body>
+</html>
